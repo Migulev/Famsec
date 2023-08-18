@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="flex gap-3">
           <Button text="Get Started" />
           <Button
-            text="How it works?"
+            text="How It Works?"
             bgColor="bg-secondary hover:bg-secondaryDark"
           />
         </div>

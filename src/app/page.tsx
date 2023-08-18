@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import Navigation from '@/components/Navigation';
 import Services from '@/components/Services';
+import Solution from '@/components/Solution';
 import Stats from '@/components/Stats';
 
 // metadata
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Stats />
       <Services />
+      <Solution />
     </>
   );
 }
