@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Services from '@/components/Services';
 import Solution from '@/components/Solution';
 import Stats from '@/components/Stats';
+import Testimonial from '@/components/Testimonial';
 
 // metadata
 // nav smooth scroll & overflow-y-scroll
@@ -16,6 +17,7 @@ export default function Home() {
       <Stats />
       <Services />
       <Solution />
+      <Testimonial />
     </>
   );
 }
