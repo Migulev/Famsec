@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { BiCheck } from 'react-icons/bi';
-import Button from './ui/Button';
+import { Button } from './ui/Button';
 
 const solutionContent = {
   text: {
@@ -49,6 +49,7 @@ const Solution = () => {
   return (
     <section className=" overflow-x-hidden bg-light py-32">
       <div className=" container mx-auto justify-between px-4 lg:flex">
+        {/*  */}
         {/* Collage */}
         <div className=" relative z-10 mb-10 before:absolute before:-bottom-20 before:-top-20 before:right-1/2 before:z-[-1] before:w-screen before:rounded-br-3xl before:rounded-tr-[200px] before:bg-white before:py-28 before:content-[''] lg:mb-0 lg:w-6/12">
           <div className="flex gap-2">
@@ -93,6 +94,7 @@ const Solution = () => {
             </div>
           </div>
         </div>
+        {/*  */}
         {/* Text */}
         <div className=" relative z-10 lg:w-5/12">
           <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
@@ -115,15 +117,10 @@ const Solution = () => {
             ))}
           </ul>
           <div className="flex gap-3">
-            <Button
-              text={solutionContent.text.cta.btn1.label}
-              href={solutionContent.text.cta.btn1.href}
-            />
-            <Button
-              text={solutionContent.text.cta.btn2.label}
-              href={solutionContent.text.cta.btn2.href}
-              bgColor="bg-secondary hover:bg-secondaryDark"
-            />
+            <Button>{solutionContent.text.cta.btn1.label}</Button>
+            <Button variant={'secondary'}>
+              {solutionContent.text.cta.btn2.label}
+            </Button>
           </div>
         </div>
       </div>

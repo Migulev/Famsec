@@ -8,7 +8,7 @@ import { GrClose } from 'react-icons/gr';
 import { BiChevronRight } from 'react-icons/bi';
 
 import logo from '../../public/images/logo.svg';
-import Button from './ui/Button';
+import { Button } from './ui/Button';
 
 const navigationMenu = [
   {
@@ -64,7 +64,7 @@ const Navigation = () => {
             </div>
             {/* CTA */}
             <div className="">
-              <Button text="Get Started" className=" hidden lg:block" />
+              <Button className=" hidden lg:block">Get Started</Button>
               <button className="block lg:hidden" onClick={mobileMenuHandler}>
                 <HiBars3 className="text-3xl" />
               </button>
@@ -76,7 +76,7 @@ const Navigation = () => {
       {/* Mobile Nav Bar */}
       {navOpen && (
         <div className="fixed top-0 z-50 min-h-screen w-screen bg-black bg-opacity-50">
-          <div className="fixed right-0 top-0 z-50 min-h-screen w-[380px] bg-white">
+          <div className="fixed right-0 top-0 z-50 min-h-screen min-w-[320px] bg-white">
             <div className=" border-b px-10 py-6">
               <button
                 className="flex items-center gap-3"

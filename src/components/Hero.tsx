@@ -1,5 +1,5 @@
-import Button from './ui/Button';
 import Image from 'next/image';
+import { Button } from './ui/Button';
 
 const heroContent = {
   text: {
@@ -20,6 +20,7 @@ const heroContent = {
 const Hero = () => {
   return (
     <section className="container mx-auto items-center justify-between px-4 py-20 lg:flex">
+      {/*  */}
       {/* Text section */}
       <div className="mb-10 lg:mb-0 lg:w-5/12">
         <span className=" relative mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
@@ -32,14 +33,12 @@ const Hero = () => {
           {heroContent.text.description}
         </p>
         <div className="flex gap-3">
-          <Button text="Get Started" />
-          <Button
-            text="How It Works?"
-            bgColor="bg-secondary hover:bg-secondaryDark"
-          />
+          <Button>Get Started</Button>
+          <Button variant={'secondary'}>How It Works?</Button>
         </div>
       </div>
 
+      {/*  */}
       {/* Collage  */}
       <div className="flex flex-col gap-2 lg:w-6/12">
         <div className="flex gap-2">

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Button from './ui/Button';
+import { Button } from './ui/Button';
 
 const testimonialContext = {
   heading: {
@@ -52,7 +52,7 @@ const Testimonial = () => {
           <p className=" mb-10 leading-relaxed text-body">
             {testimonialContext.heading.description}
           </p>
-          <Button text={testimonialContext.cta.cta_label} />
+          <Button>{testimonialContext.cta.cta_label}</Button>
         </div>
         {/* Testimonials */}
         <div className="items-end gap-0 md:flex md:gap-6 lg:w-8/12">
@@ -132,7 +132,7 @@ const Testimonial = () => {
                 {testimonialContext.testimonials[2].testimony}
               </blockquote>
             </div>
-            <div className=" hidden h-10 w-10 rounded-2xl rounded-bl-[200px] bg-[#F27763] md:inline-block lg:h-24 lg:w-24"></div>
+            <span className=" hidden h-10 w-10 rounded-2xl rounded-bl-[200px] bg-[#F27763] md:inline-block lg:h-24 lg:w-24"></span>
           </div>
         </div>
       </div>

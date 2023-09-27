@@ -1,34 +1,49 @@
+import React from 'react';
+import { Loader2 } from 'lucide-react';
+
+import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
-type Props = {
-  text: string;
-  href?: string;
-  className?: string;
-  textColor?: string;
-  bgColor?: string;
-};
+const buttonVariants = cva(
+  'transform rounded-lg transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg text-white',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary hover:bg-primaryDark',
+        secondary: 'bg-secondary hover:opacity-[85%]',
+      },
+      size: {
+        default: 'px-5 py-4',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  },
+);
 
-const Button = ({
-  text,
-  href = '#',
-  className,
-  textColor = 'text-white',
-  bgColor = 'bg-primary hover:bg-primaryDark',
-}: Props) => {
-  return (
-    <Link
-      className={cn(
-        className,
-        textColor,
-        bgColor,
-        'transform rounded-lg px-5 py-4 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg',
-      )}
-      href={href}
-    >
-      {text}
-    </Link>
-  );
-};
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  isLoading?: boolean;
+}
 
-export default Button;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, children, variant, isLoading, size, ...props }, ref) => {
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        disabled={isLoading}
+        {...props}
+      >
+        {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+        {children}
+      </button>
+    );
+  },
+);
+Button.displayName = 'Button';
+
+export { Button, buttonVariants };
