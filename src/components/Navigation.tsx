@@ -74,38 +74,46 @@ const Navigation = () => {
       </header>
 
       {/* Mobile Nav Bar */}
-      {navOpen && (
-        <div className="fixed top-0 z-50 min-h-screen w-screen bg-black bg-opacity-50">
-          <div className="fixed right-0 top-0 z-50 min-h-screen min-w-[320px] bg-white">
-            <div className=" border-b px-10 py-6">
-              <button
-                className="flex items-center gap-3"
-                onClick={mobileMenuHandler}
-              >
-                <GrClose />
-                <span>Close</span>
-              </button>
-            </div>
-            <div className="overflow-y-scroll scroll-smooth px-10 py-5">
-              <ul>
-                {navigationMenu.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="group flex items-center py-2 transition-all duration-300 ease-in-out hover:text-primary"
-                    >
-                      <span>{item.label}</span>
-                      <span className="relative left-2 opacity-0 transition-all duration-300 ease-in-out group-hover:left-3 group-hover:opacity-100">
-                        <BiChevronRight className=" text-xl" />
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div
+        className={`fixed top-0 z-50 min-h-screen w-screen bg-black  ${
+          navOpen ? 'bg-opacity-50' : 'pointer-events-none bg-opacity-0'
+        }`}
+      >
+        <div
+          className={`fixed right-0 top-0 z-50 min-h-screen min-w-[320px] bg-white ${
+            navOpen
+              ? 'translate-x-0 duration-300'
+              : 'translate-x-full duration-200 '
+          } `}
+        >
+          <div className=" border-b px-10 py-6">
+            <button
+              className="flex items-center gap-3"
+              onClick={mobileMenuHandler}
+            >
+              <GrClose />
+              <span>Close</span>
+            </button>
+          </div>
+          <div className="overflow-y-scroll scroll-smooth px-10 py-5">
+            <ul>
+              {navigationMenu.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="group flex items-center py-2 transition-all duration-300 ease-in-out hover:text-primary"
+                  >
+                    <span>{item.label}</span>
+                    <span className="relative left-2 opacity-0 transition-all duration-300 ease-in-out group-hover:left-3 group-hover:opacity-100">
+                      <BiChevronRight className=" text-xl" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
