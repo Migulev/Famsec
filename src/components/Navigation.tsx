@@ -29,7 +29,7 @@ const navigationMenu = [
   },
   {
     href: '#',
-    label: 'Contact',
+    label: 'Contacts',
   },
 ];
 

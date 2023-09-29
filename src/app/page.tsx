@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navigation from '@/components/Navigation';
 import RecentBlog from '@/components/RecentBlog';
@@ -6,11 +7,12 @@ import Solution from '@/components/Solution';
 import Stats from '@/components/Stats';
 import Testimonial from '@/components/Testimonial';
 
-// metadata
-// nav smooth scroll & overflow-y-scroll
-// buttons
+// nav smooth scroll & overflow-y-scroll to the sections
 // framer motion
-// useCallback
+// faker
+// fix chevrons
+// swiper to framer motion
+// fix learn more, click here
 
 export default function Home() {
   return (
@@ -21,8 +23,8 @@ export default function Home() {
       <Services />
       <Solution />
       <Testimonial />
-      <h3>hi</h3>
-      {/* <RecentBlog /> */}
+      <RecentBlog />
+      <Footer />
     </>
   );
 }

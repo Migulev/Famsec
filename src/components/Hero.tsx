@@ -22,6 +22,7 @@ const Hero = () => {
     <section className="container mx-auto items-center justify-between px-4 py-20 lg:flex">
       {/*  */}
       {/* Text section */}
+      {/*  */}
       <div className="mb-10 lg:mb-0 lg:w-5/12">
         <span className=" relative mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
           {heroContent.text.subheading}
@@ -40,6 +41,7 @@ const Hero = () => {
 
       {/*  */}
       {/* Collage  */}
+      {/*  */}
       <div className="flex flex-col gap-2 lg:w-6/12">
         <div className="flex gap-2">
           <div className="w-8/12">
