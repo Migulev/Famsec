@@ -61,7 +61,16 @@ const Stats = () => {
           ))}
         </div>
       </div>
-      <div className=" relative rounded-lg bg-light px-7 py-10 pr-28 md:pr-32 lg:w-5/12 lg:px-10 lg:pr-40">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className=" relative rounded-lg bg-light px-7 py-10 pr-28 md:pr-32 lg:w-5/12 lg:px-10 lg:pr-40"
+      >
         <motion.div
           variants={{
             hidden: { opacity: 0, x: -100 },
@@ -143,7 +152,7 @@ const Stats = () => {
             </span>
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
