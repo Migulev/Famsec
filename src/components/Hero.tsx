@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="mb-10 lg:mb-0 lg:w-5/12">
         <motion.span
           variants={{
-            hidden: { opacity: 0, y: 70 },
+            hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -42,7 +42,7 @@ const Hero = () => {
         </motion.span>
         <motion.h1
           variants={{
-            hidden: { opacity: 0, y: 70 },
+            hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -55,7 +55,7 @@ const Hero = () => {
         </motion.h1>
         <motion.p
           variants={{
-            hidden: { opacity: 0, y: 70 },
+            hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -68,7 +68,7 @@ const Hero = () => {
         </motion.p>
         <motion.div
           variants={{
-            hidden: { opacity: 0, y: 70 },
+            hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -112,7 +112,7 @@ const Hero = () => {
             <div className="flex gap-2">
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -70 },
+                  hidden: { opacity: 0, y: -100 },
                   visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
@@ -144,7 +144,7 @@ const Hero = () => {
             </div>
             <motion.div
               variants={{
-                hidden: { opacity: 0, x: 70 },
+                hidden: { opacity: 0, x: 100 },
                 visible: { opacity: 1, x: 0 },
               }}
               initial="hidden"
@@ -179,7 +179,7 @@ const Hero = () => {
               />
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: 70 },
+                  hidden: { opacity: 0, y: 100 },
                   visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
@@ -200,7 +200,7 @@ const Hero = () => {
           </div>
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 70 },
+              hidden: { opacity: 0, y: 100 },
               visible: { opacity: 1, y: 0 },
             }}
             initial="hidden"
