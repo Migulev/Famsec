@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import ButtonChevron from './ui/ButtonChevron';
+import { useSwipeable } from 'react-swipeable';
 
 const blogContent = {
   heading: {
@@ -100,6 +101,11 @@ const RecentBlog = () => {
     setPosition((prev) => Math.min(prev + 1, maxPosition));
   };
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+  });
+
   return (
     <section className=" bg-light py-20">
       <div className=" container mx-auto px-4 ">
@@ -143,14 +149,14 @@ const RecentBlog = () => {
         {/*  */}
         {/* SLIDER */}
         {/*  */}
-        <div className="mb-10 flex overflow-hidden py-10">
+        <div {...swipeHandlers} className="mb-10 flex overflow-hidden py-10">
           {blogContent.recentBlog.map((blog, index) => (
             <div
               key={index}
               style={{
                 transform: `translateX(-${position * 100}%)`,
               }}
-              className=" w-[300px] shrink-0 px-5 duration-500 sm:w-[450px]"
+              className=" w-[300px] shrink-0 px-2 duration-500 sm:w-[450px] sm:px-3"
             >
               <div className="mt-10 rounded-lg bg-white p-5">
                 <Link
