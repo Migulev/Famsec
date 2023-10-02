@@ -109,7 +109,7 @@ const Solution = () => {
           <ul className="mb-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
             {solutionContent.text.features.map((item, i) => (
               <li key={i} className="flex flex-grow items-center gap-5">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary">
                   <BiCheck className=" text-xl text-white" />
                 </span>
                 <span>{item.title}</span>

@@ -10,7 +10,7 @@ import Testimonial from '@/components/Testimonial';
 // nav smooth scroll & overflow-y-scroll to the sections
 // framer motion
 // faker
-// fix chevrons
+// fix chevrons for slider to grey when it is not clickable
 // swiper to framer motion
 // fix learn more, click here
 

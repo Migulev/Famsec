@@ -2,10 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useRef, useState } from 'react';
+import { useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import ButtonChevron from './ui/ButtonChevron';
 
 const blogContent = {
   heading: {
@@ -20,7 +19,7 @@ const blogContent = {
       img: '/images/post-1-min.jpg',
       title:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
-      descroption:
+      description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
       author: {
         img: '/images/person-1-min.jpg',
@@ -33,7 +32,7 @@ const blogContent = {
       img: '/images/post-2-min.jpg',
       title:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
-      descroption:
+      description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
       author: {
         img: '/images/person-2-min.jpg',
@@ -46,7 +45,7 @@ const blogContent = {
       img: '/images/post-3-min.jpg',
       title:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
-      descroption:
+      description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
       author: {
         img: '/images/person-3-min.jpg',
@@ -59,7 +58,7 @@ const blogContent = {
       img: '/images/post-2-min.jpg',
       title:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
-      descroption:
+      description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
       author: {
         img: '/images/person-1-min.jpg',
@@ -72,7 +71,7 @@ const blogContent = {
       img: '/images/post-1-min.jpg',
       title:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
-      descroption:
+      description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
       author: {
         img: '/images/person-2-min.jpg',
@@ -89,18 +88,21 @@ const blogContent = {
 };
 
 const RecentBlog = () => {
-  const [sliderIndex, setSliderIndex] = useState(0);
-  const [isEnd, setIsEnd] = useState(null);
-  const [isStart, setIsStart] = useState(null);
-  const sliderRef = useRef(null);
+  const [position, setPosition] = useState(0);
+  const minPosition = 0;
+  const maxPosition = blogContent.recentBlog.length - 1;
 
-  const preHandler = useCallback(() => {
-    if (!sliderRef.current) return;
-  }, []);
+  const handlePrev = () => {
+    setPosition((prev) => Math.max(prev - 1, minPosition));
+  };
+
+  const handleNext = () => {
+    setPosition((prev) => Math.min(prev + 1, maxPosition));
+  };
 
   return (
-    <section className=" overflow-x-hidden bg-light py-20">
-      <div className=" container mx-auto ">
+    <section className=" bg-light py-20">
+      <div className=" container mx-auto px-4 ">
         {/*  */}
         {/* HEADING*/}
         {/*  */}
@@ -124,55 +126,32 @@ const RecentBlog = () => {
           {/*  */}
           <div className=" text-left lg:w-5/12 lg:text-right"></div>
           <div className="inline-flex gap-3">
-            {/* LEFT */}
-            <div
-              className={`group flex aspect-square w-12 cursor-pointer items-center justify-center rounded-full bg-[#E1E7EA] transition-all duration-300 ease-in-out ${
-                isStart
-                  ? 'cursor-auto bg-[#E1E7EA] opacity-30'
-                  : ' opacity-100 hover:bg-primary'
-              }`}
+            <ButtonChevron
+              onClick={handlePrev}
+              disabled={position === minPosition}
             >
-              <BiChevronLeft
-                className={` text-3xl text-primary transition-all duration-300 ease-in-out ${
-                  isStart
-                    ? ' group-hover:text-primary'
-                    : ' group-hover:text-white'
-                }`}
-              />
-            </div>
-            {/* RIGHT */}
-            <div
-              className={`group inline-flex aspect-square w-12 cursor-pointer items-center justify-center rounded-full bg-[#E1E7EA] transition-all duration-300 ease-in-out ${
-                isStart
-                  ? 'cursor-auto bg-[#E1E7EA] opacity-30'
-                  : ' opacity-100 hover:bg-primary'
-              }`}
+              <BiChevronLeft />
+            </ButtonChevron>
+            <ButtonChevron
+              onClick={handleNext}
+              disabled={position === maxPosition}
             >
-              <BiChevronRight
-                className={` text-3xl text-primary transition-all duration-300 ease-in-out ${
-                  isStart
-                    ? ' group-hover:text-primary'
-                    : ' group-hover:text-white'
-                }`}
-              />
-            </div>
+              <BiChevronRight />
+            </ButtonChevron>
           </div>
         </div>
         {/*  */}
         {/* SLIDER */}
         {/*  */}
-        <Swiper
-          ref={sliderRef}
-          speed={700}
-          breakpoints={{
-            640: { width: 640, slidesPerView: 1 },
-            768: { width: 768, slidesPerView: 2 },
-            1024: { width: 1024, slidesPerView: 2 },
-          }}
-          className="mb-24 !flex !overflow-visible py-10"
-        >
+        <div className="mb-10 flex overflow-hidden py-10">
           {blogContent.recentBlog.map((blog, index) => (
-            <SwiperSlide key={index}>
+            <div
+              key={index}
+              style={{
+                transform: `translateX(-${position * 100}%)`,
+              }}
+              className=" w-[300px] shrink-0 px-5 duration-500 sm:w-[450px]"
+            >
               <div className="mt-10 rounded-lg bg-white p-5">
                 <Link
                   href={blog.href}
@@ -185,7 +164,7 @@ const RecentBlog = () => {
                     {blog.title}
                   </Link>
                 </h2>
-                <p className=" mb-6">{blog.descroption}</p>
+                <p className=" mb-6">{blog.description}</p>
                 <div className=" flex items-center gap-4">
                   <div className=" flex-shrink-0">
                     <Image
@@ -206,9 +185,9 @@ const RecentBlog = () => {
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
 
         {/*  */}
         {/* CTA */}
@@ -222,7 +201,7 @@ const RecentBlog = () => {
             <strong className=" pl-1 font-semibold text-primary">
               {blogContent.cta.labelSuffix}
             </strong>
-            <span className=" flex h-8 w-8 items-center justify-center rounded-full bg-primary">
+            <span className=" flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <BiChevronRight className=" aspect-square w-6 text-white" />
             </span>
           </Link>

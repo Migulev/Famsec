@@ -61,7 +61,7 @@ const Stats = () => {
           className=" group flex items-center gap-2 font-semibold text-primary outline-none"
         >
           <span>{statsContent.content.cta.cta_label}</span>
-          <span className="inline-flex w-6 items-center justify-center rounded-full bg-primary text-white transition-all duration-300 ease-in-out group-hover:bg-secondary">
+          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white transition-all duration-300 ease-in-out group-hover:bg-secondary">
             <BiChevronRight className=" text-lg" />
           </span>
         </Link>
