@@ -1,4 +1,3 @@
-import { framerConfig } from '@/config/framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiChevronRight } from 'react-icons/bi';
@@ -39,8 +38,8 @@ const Stats = () => {
           {statsContent.stats.map((item, index) => (
             <OnViewWrapper
               key={item.label}
-              variants={framerConfig.up}
-              transition={framerConfig.delayIndex(index)}
+              variants={'up'}
+              delay={index === 0 ? '0.1' : index === 1 ? '0.2' : '0.3'}
               className=" text-center lg:text-left"
             >
               <strong className=" block text-4xl font-bold leading-tight text-primary xl:text-[52px]">
@@ -52,12 +51,13 @@ const Stats = () => {
         </div>
       </div>
       <OnViewWrapper
-        variants={framerConfig.appear}
+        variants={'appear'}
+        delay="0.0"
         className=" relative rounded-lg bg-light px-7 py-10 pr-28 md:pr-32 lg:w-5/12 lg:px-10 lg:pr-40"
       >
         <OnViewWrapper
-          variants={framerConfig.right}
-          transition={framerConfig.delay4}
+          variants={'right'}
+          delay="0.4"
           className=" absolute -top-14 right-0 lg:right-6"
         >
           <Image
@@ -68,24 +68,15 @@ const Stats = () => {
             className="w-24"
           />
         </OnViewWrapper>
-        <OnViewWrapper
-          variants={framerConfig.left}
-          transition={framerConfig.delay1}
-        >
+        <OnViewWrapper variants={'left'} delay="0.1">
           <h3 className=" mb-3 text-xl font-bold text-heading">
             {statsContent.content.heading}
           </h3>
         </OnViewWrapper>
-        <OnViewWrapper
-          variants={framerConfig.left}
-          transition={framerConfig.delay2}
-        >
+        <OnViewWrapper variants={'left'} delay="0.2">
           <p className=" mb-5 text-base">{statsContent.content.description}</p>
         </OnViewWrapper>
-        <OnViewWrapper
-          variants={framerConfig.left}
-          transition={framerConfig.delay3}
-        >
+        <OnViewWrapper variants={'left'} delay="0.3">
           <Link
             href={statsContent.content.cta.cta_href}
             className=" group flex items-center gap-2 font-semibold text-primary outline-none"

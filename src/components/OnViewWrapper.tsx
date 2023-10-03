@@ -9,11 +9,19 @@ import {
 import { motion } from 'framer-motion';
 import React from 'react';
 
-interface OnViewWrapperProps {
+export interface OnViewWrapperProps {
   className?: string;
   children?: React.ReactNode;
+  baseDelay?: number;
   variants: 'up' | 'down' | 'left' | 'right' | 'appear';
-  delay: '0.0' | '0.1' | '0.2' | '0.3' | '0.4' | '0.5';
+  delay:
+    | '0.0'
+    | '0.1'
+    | '0.2'
+    | '0.3'
+    | '0.4'
+    | '0.5'
+    | ((index: number) => void);
 }
 const initialConfig = {
   up: framerConfig.up,
@@ -28,6 +36,7 @@ const OnViewWrapper = ({
   children,
   variants,
   delay,
+  baseDelay = BASE_DELAY,
 }: OnViewWrapperProps) => {
   const selectedInitial = initialConfig[variants];
 
@@ -37,7 +46,7 @@ const OnViewWrapper = ({
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true }}
       transition={{
-        delay: Number(delay) + BASE_DELAY,
+        delay: Number(delay) + baseDelay,
         duration: DURATION,
         ease: EASE,
       }}
