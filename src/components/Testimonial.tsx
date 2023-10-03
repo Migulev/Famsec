@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button } from './ui/Button';
+import OnViewWrapper, { DelayProps } from './OnViewWrapper';
 
 const testimonialContext = {
   heading: {
@@ -43,27 +44,38 @@ const Testimonial = () => {
       <div className=" container mx-auto items-center justify-between px-4 lg:flex">
         {/* CTA */}
         <div className=" mb-10 lg:mb-0 lg:mr-24 lg:w-4/12">
-          <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
-            {testimonialContext.heading.headingSubTitle}
-          </span>
-          <h2 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
-            {testimonialContext.heading.headingTitle}
-          </h2>
-          <p className=" mb-10 leading-relaxed text-body">
-            {testimonialContext.heading.description}
-          </p>
-          <Button>{testimonialContext.cta.cta_label}</Button>
+          <OnViewWrapper variants="up" delay="0.0">
+            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
+              {testimonialContext.heading.headingSubTitle}
+            </span>
+          </OnViewWrapper>
+          <OnViewWrapper variants="up" delay="0.1">
+            <h2 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
+              {testimonialContext.heading.headingTitle}
+            </h2>
+          </OnViewWrapper>
+          <OnViewWrapper variants="up" delay="0.2">
+            <p className=" mb-10 leading-relaxed text-body">
+              {testimonialContext.heading.description}
+            </p>
+          </OnViewWrapper>
+          <OnViewWrapper variants="up" delay="0.3">
+            <Button>{testimonialContext.cta.cta_label}</Button>
+          </OnViewWrapper>
         </div>
         {/* Testimonials */}
         <div className="items-end gap-0 md:flex md:gap-6 lg:w-8/12">
           <div className=" mb-6 md:mb-0 md:w-6/12">
-            {testimonialContext.testimonials.map((item, i) => {
-              if (i === 2) return null;
+            {testimonialContext.testimonials.map((item, index) => {
+              if (index === 2) return null;
+              const delay = (index * 0.1).toFixed(1) as DelayProps['delay'];
               return (
-                <div
-                  key={i}
-                  className={` w-full rounded-lg bg-white p-7 ${
-                    i === 1 ? '' : 'mb-6'
+                <OnViewWrapper
+                  key={index}
+                  variants="up"
+                  delay={delay}
+                  className={` rounded-lg bg-white p-7 ${
+                    index === 1 ? '' : 'mb-6'
                   }`}
                 >
                   <div className="mb-4 flex items-center gap-4">
@@ -94,11 +106,11 @@ const Testimonial = () => {
                     </div>
                   </div>
                   <blockquote>{item.testimony}</blockquote>
-                </div>
+                </OnViewWrapper>
               );
             })}
           </div>
-          <div className=" md:w-6/12">
+          <OnViewWrapper variants="up" delay="0.2" className=" md:w-6/12">
             <span className=" mb-6 hidden h-16 w-16 rounded-full bg-greenLight md:block" />
             <div className=" mb-6 rounded-lg bg-white p-7">
               <div className="mb-4 flex items-center gap-4">
@@ -133,7 +145,7 @@ const Testimonial = () => {
               </blockquote>
             </div>
             <span className=" hidden h-10 w-10 rounded-2xl rounded-bl-[200px] bg-[#F27763] md:inline-block lg:h-24 lg:w-24"></span>
-          </div>
+          </OnViewWrapper>
         </div>
       </div>
     </section>

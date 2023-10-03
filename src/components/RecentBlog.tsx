@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { useSwipeable } from 'react-swipeable';
 import ButtonChevron from './ui/ButtonChevron';
+import OnViewWrapper from './OnViewWrapper';
 
 const blogContent = {
   heading: {
@@ -112,21 +113,31 @@ const RecentBlog = () => {
           {/* TITLE*/}
           {/*  */}
           <div className=" mb-10 lg:mb-0 lg:w-5/12">
-            <span className=" relative z-10 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight">
-              {blogContent.heading.headingSubTitle}
-            </span>
-            <h2 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
-              {blogContent.heading.headingTitle}
-            </h2>
-            <p className=" leading-relaxed text-body">
-              {blogContent.heading.description}
-            </p>
+            <OnViewWrapper variants="up" delay="0.0">
+              <span className=" relative z-10 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight">
+                {blogContent.heading.headingSubTitle}
+              </span>
+            </OnViewWrapper>
+            <OnViewWrapper variants="up" delay="0.1">
+              <h2 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
+                {blogContent.heading.headingTitle}
+              </h2>
+            </OnViewWrapper>
+            <OnViewWrapper variants="up" delay="0.2">
+              <p className=" leading-relaxed text-body">
+                {blogContent.heading.description}
+              </p>
+            </OnViewWrapper>
           </div>
           {/* */}
           {/* CHEVRONS */}
           {/*  */}
-          <div className=" text-left lg:w-5/12 lg:text-right"></div>
-          <div className="inline-flex gap-3">
+
+          <OnViewWrapper
+            variants="left"
+            delay="0.3"
+            className="inline-flex gap-3"
+          >
             <ButtonChevron
               onClick={handlePrev}
               disabled={position === minPosition}
@@ -139,61 +150,67 @@ const RecentBlog = () => {
             >
               <BiChevronRight />
             </ButtonChevron>
-          </div>
+          </OnViewWrapper>
         </div>
         {/*  */}
         {/* SLIDER */}
         {/*  */}
-        <div {...swipeHandlers} className="mb-10 flex overflow-hidden py-10">
-          {blogContent.recentBlog.map((blog, index) => (
-            <div
-              key={index}
-              style={{
-                transform: `translateX(-${position * 100}%)`,
-              }}
-              className=" w-[300px] shrink-0 px-2 duration-500 sm:w-[450px] sm:px-3"
-            >
-              <div className="mt-10 rounded-lg bg-white p-5">
-                <Link
-                  href={blog.href}
-                  className="relative -mt-10 mb-4 inline-block rounded-lg"
-                >
-                  <Image src={blog.img} width={782} height={467} alt="" />
-                </Link>
-                <h2 className=" mb-5 text-lg font-bold leading-7 text-heading">
-                  <Link href={blog.href} className=" text-heading">
-                    {blog.title}
+        <OnViewWrapper variants="up" delay="0.3">
+          <div {...swipeHandlers} className="mb-10 flex overflow-hidden py-10">
+            {blogContent.recentBlog.map((blog, index) => (
+              <div
+                key={index}
+                style={{
+                  transform: `translateX(-${position * 100}%)`,
+                }}
+                className=" w-[300px] shrink-0 px-2 duration-500 sm:w-[450px] sm:px-3"
+              >
+                <div className="mt-10 rounded-lg bg-white p-5">
+                  <Link
+                    href={blog.href}
+                    className="relative -mt-10 mb-4 inline-block rounded-lg"
+                  >
+                    <Image src={blog.img} width={782} height={467} alt="" />
                   </Link>
-                </h2>
-                <p className=" mb-6">{blog.description}</p>
-                <div className=" flex items-center gap-4">
-                  <div className=" flex-shrink-0">
-                    <Image
-                      src={blog.author.img}
-                      width={50}
-                      height={50}
-                      className=" aspect-square w-14 rounded-full object-cover"
-                      alt=""
-                    />
-                  </div>
-                  <div className=" leading-5">
-                    <strong className=" text-primary">
-                      {blog.author.name}
-                    </strong>
-                    <span className=" block text-sm text-body">
-                      {blog.author.titleRole}
-                    </span>
+                  <h2 className=" mb-5 text-lg font-bold leading-7 text-heading">
+                    <Link href={blog.href} className=" text-heading">
+                      {blog.title}
+                    </Link>
+                  </h2>
+                  <p className=" mb-6">{blog.description}</p>
+                  <div className=" flex items-center gap-4">
+                    <div className=" flex-shrink-0">
+                      <Image
+                        src={blog.author.img}
+                        width={50}
+                        height={50}
+                        className=" aspect-square w-14 rounded-full object-cover"
+                        alt=""
+                      />
+                    </div>
+                    <div className=" leading-5">
+                      <strong className=" text-primary">
+                        {blog.author.name}
+                      </strong>
+                      <span className=" block text-sm text-body">
+                        {blog.author.titleRole}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </OnViewWrapper>
 
         {/*  */}
         {/* CTA */}
         {/*  */}
-        <div className=" mx-auto flex items-center justify-center">
+        <OnViewWrapper
+          variants="up"
+          delay="0.4"
+          className=" mx-auto flex items-center justify-center"
+        >
           <Link
             href={blogContent.cta.href}
             className=" flex items-center gap-3 rounded-full border px-6 py-3 transition-all duration-300 ease-in-out hover:border-gray-400"
@@ -206,7 +223,7 @@ const RecentBlog = () => {
               <BiChevronRight className=" aspect-square w-6 text-white" />
             </span>
           </Link>
-        </div>
+        </OnViewWrapper>
       </div>
     </section>
   );

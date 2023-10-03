@@ -9,7 +9,6 @@ import Testimonial from '@/components/Testimonial';
 
 // nav smooth scroll & overflow-y-scroll to the sections
 // framer motion
-// faker
 
 export default function Home() {
   return (
