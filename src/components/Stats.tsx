@@ -1,8 +1,8 @@
-'use client';
+import { framerConfig } from '@/config/framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiChevronRight } from 'react-icons/bi';
-import { motion } from 'framer-motion';
+import FramerMotionWrapper from './FramerMotionWrapper';
 
 const statsContent = {
   stats: [
@@ -37,53 +37,27 @@ const Stats = () => {
       <div className=" mb-20 w-full lg:mb-0 lg:w-7/12">
         <div className=" grid grid-cols-3">
           {statsContent.stats.map((item, index) => (
-            <motion.div
+            <FramerMotionWrapper
               key={item.label}
-              variants={{
-                hidden: { opacity: 0, y: 100 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: 0.1 * index,
-                ease: 'easeOut',
-              }}
+              variants={framerConfig.up}
+              transition={framerConfig.delayIndex(index)}
               className=" text-center lg:text-left"
             >
               <strong className=" block text-4xl font-bold leading-tight text-primary xl:text-[52px]">
                 {item.number}
               </strong>
               <span>{item.label}</span>
-            </motion.div>
+            </FramerMotionWrapper>
           ))}
         </div>
       </div>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+      <FramerMotionWrapper
+        variants={framerConfig.appear}
         className=" relative rounded-lg bg-light px-7 py-10 pr-28 md:pr-32 lg:w-5/12 lg:px-10 lg:pr-40"
       >
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, x: -100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: 0.4,
-            ease: 'easeOut',
-          }}
+        <FramerMotionWrapper
+          variants={framerConfig.right}
+          transition={framerConfig.delay4}
           className=" absolute -top-14 right-0 lg:right-6"
         >
           <Image
@@ -93,54 +67,24 @@ const Stats = () => {
             height={1}
             className="w-24"
           />
-        </motion.div>
-        <motion.h3
-          variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: 0.1,
-            ease: 'easeOut',
-          }}
-          className=" mb-3 text-xl font-bold text-heading"
+        </FramerMotionWrapper>
+        <FramerMotionWrapper
+          variants={framerConfig.left}
+          transition={framerConfig.delay1}
         >
-          {statsContent.content.heading}
-        </motion.h3>
-        <motion.p
-          variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: 0.2,
-            ease: 'easeOut',
-          }}
-          className=" mb-5 text-base"
+          <h3 className=" mb-3 text-xl font-bold text-heading">
+            {statsContent.content.heading}
+          </h3>
+        </FramerMotionWrapper>
+        <FramerMotionWrapper
+          variants={framerConfig.left}
+          transition={framerConfig.delay2}
         >
-          {statsContent.content.description}
-        </motion.p>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: 0.3,
-            ease: 'easeOut',
-          }}
+          <p className=" mb-5 text-base">{statsContent.content.description}</p>
+        </FramerMotionWrapper>
+        <FramerMotionWrapper
+          variants={framerConfig.left}
+          transition={framerConfig.delay3}
         >
           <Link
             href={statsContent.content.cta.cta_href}
@@ -151,8 +95,8 @@ const Stats = () => {
               <BiChevronRight className=" text-lg" />
             </span>
           </Link>
-        </motion.div>
-      </motion.div>
+        </FramerMotionWrapper>
+      </FramerMotionWrapper>
     </section>
   );
 };
