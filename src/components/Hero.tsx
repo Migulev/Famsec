@@ -2,13 +2,15 @@ import { framerConfig } from '@/config/framer-motion';
 import Image from 'next/image';
 import FramerMotionWrapper from './FramerMotionWrapper';
 import { Button } from './ui/Button';
+import { faker } from '@faker-js/faker';
+
+const fakeDescription = faker.lorem.paragraph(5);
 
 const heroContent = {
   text: {
     subheading: 'Welcome to FamSec',
     heading: 'Protecting Families, Securing Futures',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae minima quod maiores, debitis possimus natus sapiente consequuntur ab vero facere dolor aut commodi tenetur hic omnis obcaecati sit excepturi assumenda eius fuga et perspiciatis perferendis ratione veniam! Quia, provident vero veritatis dolorem ut culpa magnam illo, voluptate saepe natus quis.',
+    description: fakeDescription,
   },
   images: {
     img1: '/images/hero-img-1-min.jpg',

@@ -4,80 +4,75 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import ButtonChevron from './ui/ButtonChevron';
 import { useSwipeable } from 'react-swipeable';
+import ButtonChevron from './ui/ButtonChevron';
 
 const blogContent = {
   heading: {
     headingSubTitle: 'Our Writeups',
     headingTitle: 'Our Latest Articles',
     description:
-      'We are dedicated to staying at the forefront of our industry and keeping our valued community informed about the latest trends, insights, and innovations.',
+      'Utpote victoria canis cogo subseco ambulo deserunt adiuvo adinventitias aer curto celo adduco contabesco voluptatibus caries apto strues administratio angustus testimonium paulatim carbo tergo.',
   },
   recentBlog: [
     {
       href: '#',
       img: '/images/post-1-min.jpg',
-      title:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
+      title: 'Adeptio adulatio sordeo claro ustulo.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
+        'Dens acceptus credo adsuesco complectus vicinus verto sufficio tripudio earum causa adeptio spectaculum tenetur tubineus suadeo tergiversatio perspiciatis appello sub adhaero sublime inventore vomito cognatus demoror deludo.',
       author: {
         img: '/images/person-1-min.jpg',
-        name: 'Alisa Richardson',
-        titleRole: 'Editor, CEO, Co-Founder',
+        name: 'Tracy Harris',
+        titleRole: 'Legacy Response Assistant',
       },
     },
     {
       href: '#',
       img: '/images/post-2-min.jpg',
-      title:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
+      title: 'Stipes subnecto sint vulgo careo.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
+        'Teres asperiores velociter sopor quis cruciamentum deprecator vigilo tricesimus utique admitto alius certus eius addo arx talus harum nihil tam vorago crudelis vomito antiquus numquam.',
       author: {
         img: '/images/person-2-min.jpg',
-        name: 'Jane Cooper',
-        titleRole: 'Editor, CEO, Co-Founder',
+        name: 'Ella Walter',
+        titleRole: 'Chief Accounts Liaison',
       },
     },
     {
       href: '#',
       img: '/images/post-3-min.jpg',
-      title:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
+      title: 'Acerbitas universe beneficium curvo ullam.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
+        'Saepe patria ademptio crebro patria velociter qui canis cupressus deludo alias summopere abduco correptius vestigium beneficium victus vado summa sit ustilo.',
       author: {
         img: '/images/person-3-min.jpg',
-        name: 'Davon McKenny',
-        titleRole: 'Editor, CEO, Co-Founder',
+        name: 'Steve Champlin',
+        titleRole: 'National Marketing Officer',
       },
     },
     {
       href: '#',
       img: '/images/post-2-min.jpg',
-      title:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
+      title: 'Culpo aro compello clarus quas.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
+        'Nisi aspernatur accendo defero commodi videlicet ars tener valde thalassinus sopor cras alias vomica caelum attollo vilis vis necessitatibus nihil accusantium subseco adduco quo decipio nostrum necessitatibus amo depono.',
       author: {
         img: '/images/person-1-min.jpg',
-        name: 'Alisa Richardson',
-        titleRole: 'Editor, CEO, Co-Founder',
+        name: 'Fannie Ritchie',
+        titleRole: 'Corporate Creative Developer',
       },
     },
     {
       href: '#',
       img: '/images/post-1-min.jpg',
-      title:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, iusto!',
+      title: 'Cursus anser creo denique auctor.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, aperiam voluptatibus delectus debitis similique laudantium ratione animi placeat eveniet dolores?',
+        'Vapulus vita cohibeo nisi alias alienus suus tero accommodo dens subseco caste dicta vis cubitum torrens vergo deleniti atqui hic.',
       author: {
         img: '/images/person-2-min.jpg',
-        name: 'Jane Cooper',
-        titleRole: 'Editor, CEO, Co-Founder',
+        name: 'Ernest Bernhard-Hirthe',
+        titleRole: 'International Research Orchestrator',
       },
     },
   ],
