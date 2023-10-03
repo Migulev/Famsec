@@ -1,45 +1,46 @@
 'use client';
 
+import {
+  BASE_DELAY,
+  DURATION,
+  EASE,
+  framerConfig,
+} from '@/config/framer-motion';
+import { motion } from 'framer-motion';
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface OnViewWrapperProps extends HTMLMotionProps<'div'> {
+interface OnViewWrapperProps {
   className?: string;
   children?: React.ReactNode;
-  variants: {
-    hidden: {
-      opacity: number;
-      x?: number;
-    };
-    visible: {
-      opacity: number;
-      x?: number;
-    };
-  };
-  transition?: {
-    duration: number;
-    delay: number;
-    ease: string;
-  };
+  variants: 'up' | 'down' | 'left' | 'right' | 'appear';
+  delay: '0.0' | '0.1' | '0.2' | '0.3' | '0.4' | '0.5';
 }
-
-const onViewProps = {
-  initial: 'hidden',
-  whileInView: 'visible',
-  viewport: { once: true },
+const initialConfig = {
+  up: framerConfig.up,
+  down: framerConfig.down,
+  left: framerConfig.left,
+  right: framerConfig.right,
+  appear: framerConfig.appear,
 };
 
 const OnViewWrapper = ({
   className,
   children,
   variants,
-  transition,
+  delay,
 }: OnViewWrapperProps) => {
+  const selectedInitial = initialConfig[variants];
+
   return (
     <motion.div
-      {...onViewProps}
-      variants={variants}
-      transition={transition}
+      initial={selectedInitial}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        delay: Number(delay) + BASE_DELAY,
+        duration: DURATION,
+        ease: EASE,
+      }}
       className={className}
     >
       {children}
