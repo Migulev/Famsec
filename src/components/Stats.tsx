@@ -32,7 +32,7 @@ const statsContent = {
 
 const Stats = () => {
   return (
-    <section className=" container mx-auto items-center justify-between gap-9 px-4 pb-10 pt-20 lg:flex">
+    <section className=" container mx-auto items-center justify-between gap-9 px-4 pb-10 pt-10 lg:flex lg:pt-20">
       <div className=" mb-20 w-full lg:mb-0 lg:w-7/12">
         <div className=" grid grid-cols-3">
           {statsContent.stats.map((item, index) => {

@@ -48,7 +48,7 @@ const solutionContent = {
 
 const Solution = () => {
   return (
-    <section className=" overflow-x-hidden bg-light py-32">
+    <section className=" overflow-x-hidden bg-light py-10 lg:py-32">
       <div className=" container mx-auto justify-between px-4 lg:flex">
         {/*  */}
         {/* Collage */}

@@ -103,7 +103,7 @@ const RecentBlog = () => {
   });
 
   return (
-    <section className=" bg-light py-20">
+    <section className=" bg-light py-10 lg:py-20">
       <div className=" container mx-auto px-4 ">
         {/*  */}
         {/* HEADING*/}
@@ -208,7 +208,7 @@ const RecentBlog = () => {
         {/*  */}
         <OnViewWrapper
           variants="up"
-          delay="0.4"
+          delay="0.2"
           className=" mx-auto flex items-center justify-center"
         >
           <Link

@@ -63,7 +63,7 @@ const Footer = () => {
   const rowClasses = 'mb-10 lg:mb-0 lg:w-4/12';
 
   return (
-    <footer role="contentinfo" className=" bg-white py-20">
+    <footer role="contentinfo" className=" bg-white py-10 lg:py-20">
       <div className="container mx-auto px-4">
         <div className="gap-20 lg:flex">
           {/*  */}
