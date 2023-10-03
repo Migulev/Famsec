@@ -2,12 +2,6 @@ export const DURATION = 0.5;
 export const EASE = 'easeOut';
 export const DISTANCE = 100;
 
-export const onLoadProps = {
-  initial: 'hidden',
-  whileInView: 'visible',
-  viewport: { once: true },
-};
-
 export const framerConfig = {
   appear: {
     hidden: { opacity: 0 },

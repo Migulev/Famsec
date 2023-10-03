@@ -2,7 +2,7 @@ import { framerConfig } from '@/config/framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiChevronRight } from 'react-icons/bi';
-import FramerMotionWrapper from './FramerMotionWrapper';
+import OnViewWrapper from './OnViewWrapper';
 
 const statsContent = {
   stats: [
@@ -37,7 +37,7 @@ const Stats = () => {
       <div className=" mb-20 w-full lg:mb-0 lg:w-7/12">
         <div className=" grid grid-cols-3">
           {statsContent.stats.map((item, index) => (
-            <FramerMotionWrapper
+            <OnViewWrapper
               key={item.label}
               variants={framerConfig.up}
               transition={framerConfig.delayIndex(index)}
@@ -47,15 +47,15 @@ const Stats = () => {
                 {item.number}
               </strong>
               <span>{item.label}</span>
-            </FramerMotionWrapper>
+            </OnViewWrapper>
           ))}
         </div>
       </div>
-      <FramerMotionWrapper
+      <OnViewWrapper
         variants={framerConfig.appear}
         className=" relative rounded-lg bg-light px-7 py-10 pr-28 md:pr-32 lg:w-5/12 lg:px-10 lg:pr-40"
       >
-        <FramerMotionWrapper
+        <OnViewWrapper
           variants={framerConfig.right}
           transition={framerConfig.delay4}
           className=" absolute -top-14 right-0 lg:right-6"
@@ -67,22 +67,22 @@ const Stats = () => {
             height={1}
             className="w-24"
           />
-        </FramerMotionWrapper>
-        <FramerMotionWrapper
+        </OnViewWrapper>
+        <OnViewWrapper
           variants={framerConfig.left}
           transition={framerConfig.delay1}
         >
           <h3 className=" mb-3 text-xl font-bold text-heading">
             {statsContent.content.heading}
           </h3>
-        </FramerMotionWrapper>
-        <FramerMotionWrapper
+        </OnViewWrapper>
+        <OnViewWrapper
           variants={framerConfig.left}
           transition={framerConfig.delay2}
         >
           <p className=" mb-5 text-base">{statsContent.content.description}</p>
-        </FramerMotionWrapper>
-        <FramerMotionWrapper
+        </OnViewWrapper>
+        <OnViewWrapper
           variants={framerConfig.left}
           transition={framerConfig.delay3}
         >
@@ -95,8 +95,8 @@ const Stats = () => {
               <BiChevronRight className=" text-lg" />
             </span>
           </Link>
-        </FramerMotionWrapper>
-      </FramerMotionWrapper>
+        </OnViewWrapper>
+      </OnViewWrapper>
     </section>
   );
 };

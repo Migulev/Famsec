@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
-import { onLoadProps } from '@/config/framer-motion';
 
-interface FramerMotionWrapperProps extends HTMLMotionProps<'div'> {
+interface OnViewWrapperProps extends HTMLMotionProps<'div'> {
   className?: string;
   children?: React.ReactNode;
   variants: {
@@ -24,15 +23,21 @@ interface FramerMotionWrapperProps extends HTMLMotionProps<'div'> {
   };
 }
 
-const FramerMotionWrapper = ({
+const onViewProps = {
+  initial: 'hidden',
+  whileInView: 'visible',
+  viewport: { once: true },
+};
+
+const OnViewWrapper = ({
   className,
   children,
   variants,
   transition,
-}: FramerMotionWrapperProps) => {
+}: OnViewWrapperProps) => {
   return (
     <motion.div
-      {...onLoadProps}
+      {...onViewProps}
       variants={variants}
       transition={transition}
       className={className}
@@ -42,4 +47,4 @@ const FramerMotionWrapper = ({
   );
 };
 
-export default FramerMotionWrapper;
+export default OnViewWrapper;
