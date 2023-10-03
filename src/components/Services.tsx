@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import OnViewWrapper, { DelayProps } from './OnViewWrapper';
 
 const servicesContent = {
   heading: {
@@ -53,32 +54,46 @@ const Services = () => {
     <section className=" bg-light py-20">
       <div className=" container mx-auto px-4">
         <div className=" mx-auto mb-20 max-w-xl text-center">
-          <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
-            {servicesContent.heading.headingSubTitle}
-          </span>
-          <h1 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
-            {servicesContent.heading.headingTitles}
-          </h1>
-          <p className=" leading-relaxed text-body">
-            {servicesContent.heading.description}
-          </p>
+          <OnViewWrapper variants="up" delay="0.0">
+            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
+              {servicesContent.heading.headingSubTitle}
+            </span>
+          </OnViewWrapper>
+          <OnViewWrapper variants="up" delay={'0.1'}>
+            <h1 className=" mb-5 text-2xl font-bold text-heading lg:text-4xl">
+              {servicesContent.heading.headingTitles}
+            </h1>
+          </OnViewWrapper>
+          <OnViewWrapper variants="up" delay={'0.2'}>
+            <p className=" leading-relaxed text-body">
+              {servicesContent.heading.description}
+            </p>
+          </OnViewWrapper>
         </div>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
-          {servicesContent.items.map((item, i) => (
-            <div className="flex gap-10" key={i}>
-              <div className=" w-14 shrink-0">
-                <span className=" inline-flex h-[70px] w-[70px] items-center justify-between rounded-lg bg-white p-2 shadow-2xl">
-                  <Image src={item.icon} width={62} height={62} alt="icon" />
-                </span>
-              </div>
-              <div>
-                <h3 className=" mb-3 text-base font-bold text-heading">
-                  {item.title}
-                </h3>
-                <p className=" leading-relaxed">{item.description}</p>
-              </div>
-            </div>
-          ))}
+          {servicesContent.items.map((item, index) => {
+            const delay = (index * 0.1).toFixed(1) as DelayProps['delay'];
+            return (
+              <OnViewWrapper
+                key={index}
+                variants="up"
+                delay={delay}
+                className="flex gap-10"
+              >
+                <div className=" w-14 shrink-0">
+                  <span className=" inline-flex h-[70px] w-[70px] items-center justify-between rounded-lg bg-white p-2 shadow-2xl">
+                    <Image src={item.icon} width={62} height={62} alt="icon" />
+                  </span>
+                </div>
+                <div>
+                  <h3 className=" mb-3 text-base font-bold text-heading">
+                    {item.title}
+                  </h3>
+                  <p className=" leading-relaxed">{item.description}</p>
+                </div>
+              </OnViewWrapper>
+            );
+          })}
         </div>
       </div>
     </section>

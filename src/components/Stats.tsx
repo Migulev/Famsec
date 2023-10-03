@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiChevronRight } from 'react-icons/bi';
-import OnViewWrapper from './OnViewWrapper';
+import OnViewWrapper, { DelayProps } from './OnViewWrapper';
 
 const statsContent = {
   stats: [
@@ -35,19 +35,22 @@ const Stats = () => {
     <section className=" container mx-auto items-center justify-between gap-9 px-4 pb-10 pt-20 lg:flex">
       <div className=" mb-20 w-full lg:mb-0 lg:w-7/12">
         <div className=" grid grid-cols-3">
-          {statsContent.stats.map((item, index) => (
-            <OnViewWrapper
-              key={item.label}
-              variants={'up'}
-              delay={index === 0 ? '0.1' : index === 1 ? '0.2' : '0.3'}
-              className=" text-center lg:text-left"
-            >
-              <strong className=" block text-4xl font-bold leading-tight text-primary xl:text-[52px]">
-                {item.number}
-              </strong>
-              <span>{item.label}</span>
-            </OnViewWrapper>
-          ))}
+          {statsContent.stats.map((item, index) => {
+            const delay = (index * 0.1).toFixed(1) as DelayProps['delay'];
+            return (
+              <OnViewWrapper
+                key={item.label}
+                variants={'up'}
+                delay={delay}
+                className=" text-center lg:text-left"
+              >
+                <strong className=" block text-4xl font-bold leading-tight text-primary xl:text-[52px]">
+                  {item.number}
+                </strong>
+                <span>{item.label}</span>
+              </OnViewWrapper>
+            );
+          })}
         </div>
       </div>
       <OnViewWrapper

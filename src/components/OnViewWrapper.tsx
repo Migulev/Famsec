@@ -9,19 +9,15 @@ import {
 import { motion } from 'framer-motion';
 import React from 'react';
 
-export interface OnViewWrapperProps {
+export interface DelayProps {
+  delay: '0.0' | '0.1' | '0.2' | '0.3' | '0.4' | '0.5';
+}
+
+export interface OnViewWrapperProps extends DelayProps {
   className?: string;
   children?: React.ReactNode;
   baseDelay?: number;
   variants: 'up' | 'down' | 'left' | 'right' | 'appear';
-  delay:
-    | '0.0'
-    | '0.1'
-    | '0.2'
-    | '0.3'
-    | '0.4'
-    | '0.5'
-    | ((index: number) => void);
 }
 const initialConfig = {
   up: framerConfig.up,
