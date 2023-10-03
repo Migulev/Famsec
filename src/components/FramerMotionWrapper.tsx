@@ -6,7 +6,7 @@ import { onLoadProps } from '@/config/framer-motion';
 
 interface FramerMotionWrapperProps extends HTMLMotionProps<'div'> {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variants: {
     hidden: {
       opacity: number;

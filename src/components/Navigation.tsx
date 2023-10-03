@@ -47,7 +47,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href={'/'}>
-              <Image src={logo} alt="logo" width={157} height={30} />
+              <Image src={logo} alt="logo" width={157} height={30} priority />
             </Link>
             {/* Navigation Menu */}
             <div className="hidden lg:block">
