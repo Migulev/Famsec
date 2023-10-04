@@ -54,7 +54,7 @@ const Solution = (props: Props) => {
   return (
     <section
       id={props.id}
-      className=" overflow-x-hidden bg-light pt-10 lg:py-32"
+      className=" overflow-y-hidden bg-light pt-10 lg:py-32"
     >
       <div className=" container mx-auto justify-between px-4 lg:flex">
         {/*  */}
