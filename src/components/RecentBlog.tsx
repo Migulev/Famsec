@@ -84,7 +84,11 @@ const blogContent = {
   },
 };
 
-const RecentBlog = () => {
+type Props = {
+  id?: string;
+};
+
+const RecentBlog = (props: Props) => {
   const [position, setPosition] = useState(0);
   const minPosition = 0;
   const maxPosition = blogContent.recentBlog.length - 1;
@@ -103,7 +107,7 @@ const RecentBlog = () => {
   });
 
   return (
-    <section className=" bg-light py-10 lg:py-20">
+    <section id={props.id} className=" bg-light py-10 lg:py-20">
       <div className=" container mx-auto px-4 ">
         {/*  */}
         {/* HEADING*/}
@@ -211,10 +215,7 @@ const RecentBlog = () => {
           delay="0.2"
           className=" mx-auto flex items-center justify-center"
         >
-          <Link
-            href={blogContent.cta.href}
-            className=" flex items-center gap-3 rounded-full border px-6 py-3 transition-all duration-300 ease-in-out hover:border-gray-400"
-          >
+          <div className=" flex items-center gap-3 rounded-full border px-6 py-3 transition-all duration-300 ease-in-out hover:border-gray-400">
             {blogContent.cta.label}
             <strong className=" pl-1 font-semibold text-primary">
               {blogContent.cta.labelSuffix}
@@ -222,7 +223,7 @@ const RecentBlog = () => {
             <span className=" flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <BiChevronRight className=" aspect-square w-6 text-white" />
             </span>
-          </Link>
+          </div>
         </OnViewWrapper>
       </div>
     </section>

@@ -13,7 +13,7 @@ const buttonVariants = cva(
         secondary: 'bg-secondary hover:opacity-[85%]',
       },
       size: {
-        default: 'px-5 py-4',
+        default: 'px-5 py-3',
       },
     },
     defaultVariants: {

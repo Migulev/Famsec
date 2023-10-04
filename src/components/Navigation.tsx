@@ -1,35 +1,34 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { HiBars3 } from 'react-icons/hi2';
-import { GrClose } from 'react-icons/gr';
+import { useState } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
+import { GrClose } from 'react-icons/gr';
+import { HiBars3 } from 'react-icons/hi2';
+import { Button as ScrollButton, Link as ScrollLink } from 'react-scroll';
 
+import { Page } from '@/types/page';
 import logo from '../../public/images/logo.svg';
 import { Button } from './ui/Button';
 
 const navigationMenu = [
   {
-    href: '#',
-    label: 'Home',
+    label: Page.Home,
   },
   {
-    href: '#',
-    label: 'How we work',
+    label: Page.Stats,
   },
   {
-    href: '#',
-    label: 'Our mission',
+    label: Page.Services,
   },
   {
-    href: '#',
-    label: 'About',
+    label: Page.Solutions,
   },
   {
-    href: '#',
-    label: 'Contacts',
+    label: Page.Testimonials,
+  },
+  {
+    label: Page.Blog,
   },
 ];
 
@@ -42,23 +41,36 @@ const Navigation = () => {
 
   return (
     <>
-      <header className="py-7">
-        <div className="container mx-auto px-4">
+      <header className="sticky top-0 z-40 my-5">
+        <div className=" container mx-auto rounded-lg bg-white/90 px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href={'/'}>
+            <ScrollLink
+              spy={true}
+              smooth={true}
+              offset={-20}
+              duration={500}
+              to={Page.Home}
+              className="cursor-pointer"
+            >
               <Image src={logo} alt="logo" width={157} height={30} priority />
-            </Link>
+            </ScrollLink>
             {/* Navigation Menu */}
             <div className="hidden lg:block">
               <ul className="flex gap-7">
                 {navigationMenu.map((item) => (
-                  <li
+                  <ScrollButton
                     key={item.label}
-                    className="transform text-body transition-all duration-300 ease-in-out hover:scale-105 hover:text-primary"
-                  >
-                    <Link href={item.href}>{item.label}</Link>
-                  </li>
+                    to={item.label}
+                    value={item.label}
+                    spy={true}
+                    smooth={true}
+                    offset={-20}
+                    duration={500}
+                    type="submit"
+                    activeClass=" text-primary/80 scale-105"
+                    className="transform cursor-pointer text-body transition-all duration-300 ease-in-out hover:scale-105 hover:text-primary"
+                  />
                 ))}
               </ul>
             </div>
@@ -99,15 +111,19 @@ const Navigation = () => {
             <ul>
               {navigationMenu.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    href={item.href}
+                  <ScrollLink
+                    smooth={true}
+                    offset={-30}
+                    duration={500}
+                    to={item.label}
+                    onClick={mobileMenuHandler}
                     className="group flex items-center py-2 transition-all duration-300 ease-in-out hover:text-primary"
                   >
                     <span>{item.label}</span>
                     <span className="relative left-2 opacity-0 transition-all duration-300 ease-in-out group-hover:left-3 group-hover:opacity-100">
                       <BiChevronRight className=" text-xl" />
                     </span>
-                  </Link>
+                  </ScrollLink>
                 </li>
               ))}
             </ul>

@@ -22,7 +22,10 @@ const heroContent = {
 
 const Hero = () => {
   return (
-    <section className="container mx-auto items-center justify-between px-4 py-10 lg:flex lg:py-20">
+    <section
+      id=""
+      className=" container mx-auto items-center justify-between px-4 py-10 lg:flex lg:py-20"
+    >
       {/*  */}
       {/* Text section */}
       {/*  */}

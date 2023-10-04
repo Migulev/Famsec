@@ -47,15 +47,18 @@ const servicesContent = {
     },
   ],
 };
-6;
 
-const Services = () => {
+type Props = {
+  id?: string;
+};
+
+const Services = (props: Props) => {
   return (
-    <section className=" bg-light py-20">
+    <section id={props.id} className=" bg-light py-20">
       <div className=" container mx-auto px-4">
         <div className=" mx-auto mb-20 max-w-xl text-center">
           <OnViewWrapper variants="up" delay="0.0">
-            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
+            <span className=" relative z-20 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
               {servicesContent.heading.headingSubTitle}
             </span>
           </OnViewWrapper>

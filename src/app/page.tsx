@@ -6,20 +6,19 @@ import Services from '@/components/Services';
 import Solution from '@/components/Solution';
 import Stats from '@/components/Stats';
 import Testimonial from '@/components/Testimonial';
-
-// nav smooth scroll & overflow-y-scroll to the sections
-// framer motion
+import { Page } from '@/types/page';
 
 export default function Home() {
   return (
     <>
+      <div id={Page.Home} />
       <Navigation />
       <Hero />
-      <Stats />
-      <Services />
-      <Solution />
-      <Testimonial />
-      <RecentBlog />
+      <Stats id={Page.Stats} />
+      <Services id={Page.Services} />
+      <Solution id={Page.Solutions} />
+      <Testimonial id={Page.Testimonials} />
+      <RecentBlog id={Page.Blog} />
       <Footer />
     </>
   );

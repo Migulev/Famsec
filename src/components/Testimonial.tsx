@@ -38,14 +38,18 @@ const testimonialContext = {
   ],
 };
 
-const Testimonial = () => {
+type Props = {
+  id?: string;
+};
+
+const Testimonial = (props: Props) => {
   return (
-    <section className=" bg-light py-20">
+    <section id={props.id} className=" bg-light py-20">
       <div className=" container mx-auto items-center justify-between px-4 lg:flex">
         {/* CTA */}
         <div className=" mb-10 lg:mb-0 lg:mr-24 lg:w-4/12">
           <OnViewWrapper variants="up" delay="0.0">
-            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
+            <span className=" relative z-20 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight">
               {testimonialContext.heading.headingSubTitle}
             </span>
           </OnViewWrapper>

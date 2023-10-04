@@ -30,9 +30,16 @@ const statsContent = {
   },
 };
 
-const Stats = () => {
+type Props = {
+  id?: string;
+};
+
+const Stats = (props: Props) => {
   return (
-    <section className=" container mx-auto items-center justify-between gap-9 px-4 pb-10 pt-10 lg:flex lg:pt-20">
+    <section
+      id={props.id}
+      className=" container mx-auto items-center justify-between gap-9 px-4 pb-10 pt-10 lg:flex lg:pt-20"
+    >
       <div className=" mb-20 w-full lg:mb-0 lg:w-7/12">
         <div className=" grid grid-cols-3">
           {statsContent.stats.map((item, index) => {
@@ -44,7 +51,7 @@ const Stats = () => {
                 delay={delay}
                 className=" text-center lg:text-left"
               >
-                <strong className=" block text-4xl font-bold leading-tight text-primary xl:text-[52px]">
+                <strong className=" block text-3xl font-bold leading-tight text-primary md:text-4xl xl:text-[52px]">
                   {item.number}
                 </strong>
                 <span>{item.label}</span>

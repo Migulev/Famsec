@@ -46,9 +46,16 @@ const solutionContent = {
   },
 };
 
-const Solution = () => {
+type Props = {
+  id?: string;
+};
+
+const Solution = (props: Props) => {
   return (
-    <section className=" overflow-x-hidden bg-light py-10 lg:py-32">
+    <section
+      id={props.id}
+      className=" overflow-x-hidden bg-light pt-10 lg:py-32"
+    >
       <div className=" container mx-auto justify-between px-4 lg:flex">
         {/*  */}
         {/* Collage */}
@@ -115,7 +122,7 @@ const Solution = () => {
         {/* Text */}
         <div className=" relative z-10 lg:w-5/12">
           <OnViewWrapper variants="up" delay="0.0">
-            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight before:content-['']">
+            <span className=" relative z-50 mb-7 inline-block py-0.5 pl-3 font-semibold text-heading before:absolute before:bottom-0 before:left-0 before:top-0 before:-z-10 before:w-2/3 before:bg-yellowLight">
               {solutionContent.text.headingSubTitle}
             </span>
           </OnViewWrapper>
