@@ -1,7 +1,7 @@
 export const DURATION = 0.5;
 export const EASE = 'easeOut';
 export const DISTANCE = 100;
-export const BASE_DELAY = 0.2;
+export const BASE_DELAY = 0;
 
 export const framerConfig = {
   appear: { opacity: 0 },

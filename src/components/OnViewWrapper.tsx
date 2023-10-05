@@ -40,7 +40,7 @@ const OnViewWrapper = ({
     <motion.div
       initial={selectedInitial}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '-10%' }}
       transition={{
         delay: Number(delay) + baseDelay,
         duration: DURATION,
