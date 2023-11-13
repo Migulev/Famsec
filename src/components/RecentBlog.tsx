@@ -137,23 +137,21 @@ const RecentBlog = (props: Props) => {
           {/* CHEVRONS */}
           {/*  */}
 
-          <OnViewWrapper
-            variants="left"
-            delay="0.3"
-            className="inline-flex gap-3"
-          >
-            <ButtonChevron
-              onClick={handlePrev}
-              disabled={position === minPosition}
-            >
-              <BiChevronLeft />
-            </ButtonChevron>
-            <ButtonChevron
-              onClick={handleNext}
-              disabled={position === maxPosition}
-            >
-              <BiChevronRight />
-            </ButtonChevron>
+          <OnViewWrapper variants="up" delay="0.3">
+            <div className="flex gap-3">
+              <ButtonChevron
+                onClick={handlePrev}
+                disabled={position === minPosition}
+              >
+                <BiChevronLeft />
+              </ButtonChevron>
+              <ButtonChevron
+                onClick={handleNext}
+                disabled={position === maxPosition}
+              >
+                <BiChevronRight />
+              </ButtonChevron>
+            </div>
           </OnViewWrapper>
         </div>
         {/*  */}
